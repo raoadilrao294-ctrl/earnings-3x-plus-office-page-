@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily Earnings 3X Plus</title>
+<style>
+:root{--bg:#071426;--panel:#10233d;--line:#284766;--text:#f4f7ff;--muted:#b9c8dc;--a:#21d4a0;--b:#6c8cff;--c:#ffbf69}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#071426,#101b35 55%,#172342);color:var(--text);font-family:Arial,sans-serif}
+header{background:#09172beF;border-bottom:1px solid var(--line);padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:5}
+.logo{font-size:22px;font-weight:800}.logo span,.accent{color:var(--a)}
+nav{display:flex;gap:14px;flex-wrap:wrap}nav a{color:#eaf1ff;text-decoration:none;font-size:14px}
+nav a:hover{color:var(--a)}.btn{background:linear-gradient(110deg,var(--a),#6ce7c2);color:#062019;border:0;border-radius:9px;padding:12px 18px;font-weight:800;cursor:pointer}
+.btn.secondary{background:#203958;color:#fff;border:1px solid #527096}.container{max-width:1120px;margin:auto;padding:24px}
+.page{display:none}.page.active{display:block}.panel{background:linear-gradient(145deg,#122844,#0d1d34);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 12px 35px #0003}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:25px;align-items:center;min-height:420px}
+.hero h1{font-size:clamp(42px,7vw,68px);line-height:1.02;margin:10px 0 18px;letter-spacing:-1.5px}
+.hero p{font-size:17px;line-height:1.7;color:var(--muted);max-width:580px}
+.hero-art{min-height:390px;border-radius:24px;background:radial-gradient(circle at 50% 38%,#3562a5,#172b55 42%,#101a30 75%);display:flex;align-items:center;justify-content:center;border:1px solid #496a9c;box-shadow:inset 0 0 50px #91b5ff22}
+.brand-card{width:min(82%,360px);min-height:300px;border-radius:25px;background:linear-gradient(145deg,#132c4b,#172a53 55%,#087f70);border:2px solid #7cebd0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:25px;box-shadow:0 0 38px #34d9bb55}
+.brand-card .symbol{font-size:64px}.brand-card strong{font-size:28px;line-height:1.25}.brand-card small{margin-top:12px;color:#d8fff5;letter-spacing:2px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.plan,.stat,.taskbox{background:#0a1b31;border:1px solid var(--line);border-radius:14px;padding:17px}
+.plan h3{margin:0 0 10px;color:#d9e7ff}.amount{font-size:25px;font-weight:800;color:var(--c)}.muted,.small{color:var(--muted);font-size:14px;line-height:1.55}
+label{display:block;font-size:14px;color:#dbe7f7;margin-top:10px}
+input,select{width:100%;padding:13px;margin:7px 0 12px;border:1px solid #3b5878;background:#07172b;color:#fff;border-radius:8px}
+input[type=file]{padding:9px}video{width:100%;max-height:260px;background:#000;border-radius:10px;margin-top:10px}
+.taskrow{padding:15px 0;border-bottom:1px solid #29415e}.taskrow:last-child{border:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hidden{display:none!important}
+.history{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}.history th,.history td{padding:9px;border-bottom:1px solid #2b4564;text-align:left}
+.notice{background:#332b19;border:1px solid #806b36;color:#ffe8ad;padding:12px;border-radius:10px;font-size:13px;line-height:1.55;margin:14px 0}
+footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:#9fb0c8;margin-top:25px}
+@media(max-width:780px){.hero,.two{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.hero-art{min-height:300px}header{position:static}.container{padding:15px}}
+
+/* Modern bright dashboard theme */
+:root{--bg:#f3f7ff;--panel:#ffffff;--line:#e2e8f5;--text:#17233c;--muted:#66748d;--a:#2878ff;--b:#8757f5;--c:#f59e0b}
+body{background:linear-gradient(135deg,#f4f8ff 0%,#f8f5ff 52%,#effbff 100%);color:var(--text)}
+header{background:#ffffffed;border-bottom:1px solid #e5eaf5;box-shadow:0 5px 22px #243b6310}
+.logo{color:#17233c}nav a{color:#394765;font-weight:700}nav a:hover{color:#2878ff}
+.panel{background:#fff;border:1px solid #e5eaf5;box-shadow:0 14px 38px #30466d12;color:#17233c}
+.hero-art{background:radial-gradient(circle at 50% 35%,#dce9ff,#e9e4ff 48%,#dff8f5 100%);border:1px solid #dce5f5;box-shadow:inset 0 0 45px #ffffffaa}
+.brand-card{background:linear-gradient(145deg,#ffffff,#e9f0ff 55%,#dff9f2);border:2px solid #fff;box-shadow:0 18px 45px #496bb333;color:#20345a}
+.brand-card small{color:#48627f}
+.plan,.stat,.taskbox{background:linear-gradient(145deg,#fff,#f6f8ff);border:1px solid #e5eaf5;box-shadow:0 8px 22px #30466d0b;color:#17233c}
+.stat{position:relative;overflow:hidden}.stat:before{content:"";display:block;height:5px;position:absolute;left:0;right:0;top:0;background:linear-gradient(90deg,#2878ff,#8a5cf6,#20c9a5)}
+.stat h2{color:#263f70;font-size:clamp(23px,4vw,30px)}
+input,select{background:#f8faff;color:#17233c;border:1px solid #d8e1f0}input::placeholder{color:#98a5ba}label{color:#394765}
+.btn{background:linear-gradient(110deg,#2878ff,#7659ed);color:#fff;box-shadow:0 7px 16px #4779df2b}.btn.secondary{background:#fff;color:#35527e;border:1px solid #d8e2f2;box-shadow:none}
+.notice{background:#fff8e8;border:1px solid #f3d99d;color:#76551b}
+.history th,.history td{border-bottom:1px solid #e7edf7;color:#33425e}.taskrow{border-bottom:1px solid #e7edf7}
+footer{color:#7a879d;border-color:#e4eaf4}
+#dashboard .grid .stat:nth-child(1){background:linear-gradient(135deg,#eaf2ff,#fff)}
+#dashboard .grid .stat:nth-child(2){background:linear-gradient(135deg,#e9fbf5,#fff)}
+#dashboard .grid .stat:nth-child(3){background:linear-gradient(135deg,#f2edff,#fff)}
+#dashboard h2,#admin h2{color:#20365f}
+#admin .taskbox{background:#f8faff}
+.request-shot{display:block;width:100%;max-width:420px;max-height:340px;object-fit:contain;background:#fff;border:1px solid #dce5f2;border-radius:12px;padding:6px;margin:10px 0}
+@media(max-width:780px){header{background:#fff}.hero-art{min-height:280px}}
+
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">Daily <span>3X Plus Earning</span></div>
+ <nav>
+  <a href="#" onclick="show('home');return false">Home</a>
+  <a href="#" onclick="show('dashboard');return false">Dashboard</a>
+  <a href="#" onclick="show('profile');return false">Profile</a>
+  <a href="#" onclick="show('money');return false">Deposit / Withdraw</a>
+  <a href="#" onclick="show('plans');return false">Plans Information</a>
+  <a href="#" onclick="show('tasks');return false">Tasks</a>
+  <a href="#" onclick="show('about');return false">About</a>
+  <a href="#" onclick="show('admin');return false">Admin Panel</a>
+ </nav>
+ <button class="btn secondary" onclick="show('login')">Login</button>
+</header>
+<main class="container">
+<section id="home" class="page active">
+ <div class="hero">
+  <div>
+   <h1>Daily <span class="accent">3X Plus</span> Earning</h1>
+   <p>A clear place to view task information, manage your account details, and submit deposit or withdrawal requests. We aim to keep the process understandable, with request details available in your profile.</p>
+   <div class="actions"><button class="btn" onclick="show('signup')">Create Account</button><button class="btn secondary" onclick="show('login')">Login</button></div>
+  </div>
+  <div class="hero-art"><div class="brand-card"><div class="symbol">✦</div><strong>DAILY<br><span class="accent">3X PLUS</span><br>EARNING</strong><small>TASKS • ACCOUNT • ACTIVITY</small></div></div>
+ </div>
+</section>
+
+<section id="dashboard" class="page"><div class="panel"><h2>Member Dashboard</h2>
+ <p id="dashWelcome" class="muted">Please create an account or log in to view your dashboard.</p>
+ <div class="grid">
+  <div class="stat"><div class="small">Available Balance</div><h2 id="dashBalance">Rs. 0.00</h2></div>
+  <div class="stat"><div class="small">Total Deposits Approved</div><h2 id="dashDeposits">Rs. 0.00</h2></div>
+  <div class="stat"><div class="small">Total Withdrawals Paid</div><h2 id="dashWithdrawals">Rs. 0.00</h2></div>
+ </div>
+ <div class="actions"><button class="btn" onclick="show('money')">Deposit / Withdraw</button><button class="btn secondary" onclick="show('tasks')">View Tasks</button><button class="btn secondary" onclick="show('profile')">My Profile & History</button></div>
+ <h3>Recent Requests</h3><div id="dashRecent" class="small">No requests yet.</div>
+ <div class="notice">Dashboard data in this version is stored only in this browser. It is not a shared online account system.</div>
+</div></section>
+
+<section id="signup" class="page"><div class="panel"><h2>Create Account</h2>
+ <label>Full Name</label><input id="name" placeholder="Enter your full name">
+ <label>Email Address</label><input id="email" type="email" placeholder="Enter email address">
+ <label>Password</label><input id="pass" type="password" placeholder="Create password">
+ <label>Confirm Password</label><input id="confirm" type="password" placeholder="Confirm password">
+ <button class="btn" onclick="signup()">Create Account</button><p id="signupMsg" class="small"></p>
+</div></section>
+<section id="login" class="page"><div class="panel"><h2>Login</h2>
+ <label>Email Address</label><input id="lemail" type="email" placeholder="Email address">
+ <label>Password</label><input id="lpass" type="password" placeholder="Password">
+ <button class="btn" onclick="login()">Login</button><p id="loginMsg" class="small"></p>
+</div></section>
+
+<section id="about" class="page"><div class="panel"><h2>About Daily 3X Plus Earning</h2>
+ <p class="muted">This section will be finalized after the remaining website pages are completed, as agreed.</p>
+ <div class="notice">Important: this current HTML version is a front-end interface. It does not yet connect to a live server, verify payments, or transfer money. Do not send a deposit based only on this page.</div>
+</div></section>
+
+<section id="money" class="page"><div class="panel"><h2>Deposit &amp; Withdraw</h2>
+ <div class="two">
+  <div class="taskbox"><h3>Deposit</h3><p class="small">Deposit method: EasyPaisa only</p>
+   <p><b>EasyPaisa Number:</b> 03071697997</p>
+   <label>Select Plan</label><select id="plan" onchange="fillPlan()">
+    <option value="">Choose a plan</option><option value="300">Plan 1 — Rs. 300</option><option value="900">Plan 2 — Rs. 900</option><option value="1500">Plan 3 — Rs. 1,500</option>
+   </select>
+   <label>Deposit Amount (PKR)</label><input id="damount" type="number" min="1" placeholder="Enter amount">
+   <label>Transaction ID</label><input id="dref" placeholder="Enter transaction ID">
+   <label>Payment Screenshot</label><input id="dscreen" type="file" accept="image/*" onchange="previewShot(event)">
+   <img id="shotPreview" class="hidden" alt="Payment screenshot preview" style="width:100%;max-height:180px;object-fit:contain;border-radius:8px">
+   <button class="btn" onclick="deposit()">Submit Deposit Request</button><p id="dmsg" class="small"></p>
+  </div>
+  <div class="taskbox"><h3>Withdraw</h3><p class="small">Available methods: EasyPaisa and JazzCash</p>
+   <label>Withdrawal Method</label><select id="wmethod"><option>EasyPaisa</option><option>JazzCash</option></select>
+   <label>Account Holder Name</label><input id="wname" placeholder="Account holder name">
+   <label>Account Number</label><input id="waccount" placeholder="Mobile account number">
+   <label>Amount (PKR)</label><input id="wamount" type="number" min="1" placeholder="Enter amount">
+   <button class="btn" onclick="withdraw()">Submit Withdrawal Request</button><p id="wmsg" class="small"></p>
+  </div>
+ </div>
+ <div class="notice">Deposit and withdrawal requests entered here are stored only in this browser. This page does not verify payments or transfer money.</div>
+</div></section>
+
+<section id="plans" class="page"><div class="panel"><h2>Plans Information</h2>
+ <div class="grid">
+  <div class="plan"><h3>Plan 1</h3><div class="amount">Rs. 300</div><p class="muted">Proposed daily amount: Rs. 50</p></div>
+  <div class="plan"><h3>Plan 2</h3><div class="amount">Rs. 900</div><p class="muted">Proposed daily amount: Rs. 200</p></div>
+  <div class="plan"><h3>Plan 3</h3><div class="amount">Rs. 1,500</div><p class="muted">Proposed daily amount: Rs. 500</p></div>
+ </div>
+ <div class="notice">These figures are displayed as plan information only, not guaranteed returns. Actual deposits and withdrawals require a secure server, payment verification, and an operational payment process.</div>
+</div></section>
+
+<section id="tasks" class="page"><div class="panel"><h2>Tasks &amp; Videos</h2>
+ <p class="muted">Add up to three video task links below. They are saved only in this browser on this device.</p>
+ <div class="two">
+  <div><label>Video 1 URL</label><input id="v1" placeholder="Paste video URL"><label>Video 2 URL</label><input id="v2" placeholder="Paste video URL"><label>Video 3 URL</label><input id="v3" placeholder="Paste video URL"><button class="btn" onclick="saveVideos()">Save Video Tasks</button><p id="vmsg" class="small"></p></div>
+  <div><div class="notice">Admin note: this is a local task editor, not a secure online admin dashboard. Changes made here will not appear on other users' devices until a server and database are connected.</div><div id="videoList"></div></div>
+ </div>
+</div></section>
+
+<section id="profile" class="page"><div class="panel"><h2>My Profile &amp; Activity</h2><div id="profileText" class="muted">Please create an account and log in first.</div>
+ <div class="grid"><div class="stat"><div class="small">Available Balance</div><h2 id="pBalance">Rs. 0.00</h2></div><div class="stat"><div class="small">Total Task Earnings</div><h2 id="pEarn">Rs. 0.00</h2></div><div class="stat"><div class="small">Completed Tasks</div><h2 id="pDone">0</h2></div></div>
+ <h3>Request History</h3><div id="history"></div>
+</div></section>
+<section id="admin" class="page"><div class="panel"><h2>Admin Panel</h2>
+ <p class="muted">یہ حصہ ویب سائٹ کے مالک کے لیے ہے۔ یہاں صارفین کی ڈپازٹ اور وِدڈرال درخواستیں دیکھی اور منظور کی جا سکتی ہیں۔</p>
+ <div class="notice">اہم: اس وقت یہ HTML فائل درخواستیں اسی براؤزر میں محفوظ کرتی ہے جہاں صارف نے جمع کروائی ہوں۔ تمام صارفین کے اسکرین شاٹس اور بیلنس ایک جگہ دیکھنے کے لیے اسے آن لائن Database اور محفوظ Admin Login سے جوڑنا ضروری ہے۔</div>
+ <div id="adminLock"><label>Admin Password</label><input id="adminPin" type="password" placeholder="Enter admin password"><button class="btn" onclick="adminLogin()">Open Admin System</button><p id="adminMsg" class="small"></p></div>
+ <div id="adminTools" class="hidden">
+  <h3>Current browser account</h3><p id="adminUser" class="small">No account on this device.</p>
+  <label>Balance میں تبدیلی (PKR)</label><input id="balanceChange" type="number" placeholder="مثلاً 300 یا -100">
+  <label>وجہ</label><input id="balanceReason" placeholder="Deposit approved / adjustment / withdrawal">
+  <button class="btn" onclick="adjustBalance()">Apply Balance Change</button><p id="balanceMsg" class="small"></p>
+  <h3>Deposit / Withdrawal Requests</h3><div id="adminRequests"></div>
+  <button class="btn secondary" onclick="adminLogout()">Close Admin Panel</button>
+ </div>
+</div></section>
+</main>
+<footer>Daily 3X Plus Earning</footer>
+<script>
+const KEY="daily_earnings_3x_plus_v2";
+let user=JSON.parse(localStorage.getItem(KEY)||"null");
+let requests=JSON.parse(localStorage.getItem(KEY+"_requests")||"[]");
+let videos=JSON.parse(localStorage.getItem(KEY+"_videos")||"[]");
+function save(){localStorage.setItem(KEY,JSON.stringify(user))}
+function saveRequests(){localStorage.setItem(KEY+"_requests",JSON.stringify(requests))}
+function show(id){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");if(id==="profile")renderProfile();if(id==="dashboard")renderDashboard();if(id==="tasks")renderVideos();if(id==="admin"&&document.getElementById("adminTools").classList.contains("hidden")){}else if(id==="admin")renderAdmin();window.scrollTo(0,0)}
+function signup(){let n=document.getElementById("name").value.trim(),e=document.getElementById("email").value.trim().toLowerCase(),p=document.getElementById("pass").value,c=document.getElementById("confirm").value;let m=document.getElementById("signupMsg");if(!n||!e||!p||!c){m.textContent="Please complete all fields.";return}if(p!==c){m.textContent="Passwords do not match.";return}user={name:n,email:e,password:p,balance:0,earnings:0,done:[]};save();m.textContent="Account created on this device. Please log in."}
+function login(){let m=document.getElementById("loginMsg");if(!user){m.textContent="Please create an account first.";return}if(document.getElementById("lemail").value.trim().toLowerCase()!==user.email||document.getElementById("lpass").value!==user.password){m.textContent="Email or password is incorrect.";return}m.textContent="Login successful.";show("dashboard")}
+function fillPlan(){let x=document.getElementById("plan").value;if(x)document.getElementById("damount").value=x}
+function previewShot(e){let f=e.target.files[0],img=document.getElementById("shotPreview");if(!f){img.classList.add("hidden");return}let r=new FileReader();r.onload=()=>{img.src=r.result;img.classList.remove("hidden")};r.readAsDataURL(f)}
+function compressScreenshot(file){return new Promise((resolve,reject)=>{let reader=new FileReader();reader.onerror=reject;reader.onload=()=>{let img=new Image();img.onerror=reject;img.onload=()=>{let scale=Math.min(1,1100/Math.max(img.width,img.height)),canvas=document.createElement("canvas");canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL("image/jpeg",0.68))};img.src=reader.result};reader.readAsDataURL(file)})}
+async function deposit(){let m=document.getElementById("dmsg"),a=Number(document.getElementById("damount").value),ref=document.getElementById("dref").value.trim(),file=document.getElementById("dscreen").files[0];if(!user){m.textContent="Please log in first.";return}if(a<=0||!ref||!file){m.textContent="Enter amount, transaction ID, and screenshot.";return}if(file.size>8*1024*1024){m.textContent="Please select a screenshot smaller than 8 MB.";return}try{m.textContent="Saving your request...";let screenshotData=await compressScreenshot(file);requests.push({type:"Deposit",method:"EasyPaisa",amount:a,reference:ref,screenshotName:file.name,screenshotData,userEmail:user.email,userName:user.name,status:"Pending",date:new Date().toLocaleString()});saveRequests();m.textContent="Deposit request submitted. Please wait for payment verification.";renderDashboard()}catch(e){m.textContent="Screenshot could not be saved. Please try another image."}}
+function withdraw(){let m=document.getElementById("wmsg"),a=Number(document.getElementById("wamount").value),acc=document.getElementById("waccount").value.trim(),nm=document.getElementById("wname").value.trim();if(!user){m.textContent="Please log in first.";return}if(a<=0||!acc||!nm){m.textContent="Enter account holder name, account number, and amount.";return}requests.push({type:"Withdrawal",method:document.getElementById("wmethod").value,amount:a,account:acc,holder:nm,userEmail:user.email,userName:user.name,status:"Pending",date:new Date().toLocaleString()});saveRequests();m.textContent="Withdrawal request saved on this device only. No money has been transferred."}
+function saveVideos(){videos=[1,2,3].map(i=>document.getElementById("v"+i).value.trim()).filter(Boolean).slice(0,3);localStorage.setItem(KEY+"_videos",JSON.stringify(videos));document.getElementById("vmsg").textContent="Video links saved on this device.";renderVideos()}
+function renderVideos(){let box=document.getElementById("videoList");box.innerHTML=videos.length?videos.map((u,i)=>`<div class="taskrow"><b>Video Task ${i+1}</b><br><a href="${safeURL(u)}" target="_blank" rel="noopener" style="color:#8debd4;overflow-wrap:anywhere">Open video</a></div>`).join(""):"<p class='small'>No video links added yet.</p>";}
+function safeURL(u){try{let x=new URL(u);return ["http:","https:"].includes(x.protocol)?x.href:"#"}catch(e){return "#"}}
+function renderDashboard(){
+ let welcome=document.getElementById("dashWelcome"),bal=document.getElementById("dashBalance"),deps=document.getElementById("dashDeposits"),wds=document.getElementById("dashWithdrawals"),recent=document.getElementById("dashRecent");
+ if(!user){welcome.textContent="Please create an account or log in to view your dashboard.";bal.textContent=deps.textContent=wds.textContent="Rs. 0.00";recent.textContent="No requests yet.";return;}
+ welcome.textContent="Welcome, "+user.name+" • "+user.email;
+ bal.textContent="Rs. "+Number(user.balance||0).toFixed(2);
+ let mine=requests.filter(r=>r.userEmail===user.email);
+ let d=mine.filter(r=>r.type==="Deposit"&&String(r.status).startsWith("Approved")).reduce((a,r)=>a+Number(r.amount||0),0);
+ let w=mine.filter(r=>r.type==="Withdrawal"&&String(r.status).startsWith("Marked paid")).reduce((a,r)=>a+Number(r.amount||0),0);
+ deps.textContent="Rs. "+d.toFixed(2);wds.textContent="Rs. "+w.toFixed(2);
+ recent.innerHTML=mine.length?"<table class='history'><tr><th>Type</th><th>Amount</th><th>Status</th><th>Date</th></tr>"+mine.slice(-5).reverse().map(r=>"<tr><td>"+escapeHTML(r.type)+"</td><td>Rs. "+Number(r.amount||0).toFixed(2)+"</td><td>"+escapeHTML(r.status)+"</td><td>"+escapeHTML(r.date||"")+"</td></tr>").join("")+"</table>":"No requests yet.";
+}
+function renderProfile(){if(!user)return;document.getElementById("profileText").innerHTML="<b>"+escapeHTML(user.name)+"</b><br>"+escapeHTML(user.email);document.getElementById("pBalance").textContent="Rs. "+Number(user.balance||0).toFixed(2);document.getElementById("pEarn").textContent="Rs. "+Number(user.earnings||0).toFixed(2);document.getElementById("pDone").textContent=(user.done||[]).length;let h=document.getElementById("history");h.innerHTML=requests.length?"<table class='history'><tr><th>Type</th><th>Method</th><th>Amount</th><th>Status</th><th>Date</th></tr>"+requests.map(r=>"<tr><td>"+escapeHTML(r.type)+"</td><td>"+escapeHTML(r.method)+"</td><td>Rs. "+Number(r.amount).toFixed(2)+"</td><td>"+escapeHTML(r.status)+"</td><td>"+escapeHTML(r.date)+"</td></tr>").join("")+"</table>":"<p class='small'>No requests recorded on this device.</p>"}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+renderVideos();
+renderDashboard();
+
+function adminLogin(){let pin=document.getElementById("adminPin").value;if(pin!=="8426"){document.getElementById("adminMsg").textContent="Incorrect PIN.";return}document.getElementById("adminLock").classList.add("hidden");document.getElementById("adminTools").classList.remove("hidden");renderAdmin()}
+function adminLogout(){document.getElementById("adminTools").classList.add("hidden");document.getElementById("adminLock").classList.remove("hidden");document.getElementById("adminPin").value=""}
+function adjustBalance(){let m=document.getElementById("balanceMsg"),change=Number(document.getElementById("balanceChange").value),reason=document.getElementById("balanceReason").value.trim();if(!user){m.textContent="اس براؤزر میں کوئی صارف اکاؤنٹ موجود نہیں۔";return}if(!Number.isFinite(change)||change===0||!reason){m.textContent="رقم میں تبدیلی اور وجہ درج کریں۔";return}if(Number(user.balance||0)+change<0){m.textContent="بیلنس صفر سے کم نہیں ہو سکتا۔";return}user.balance=Number(user.balance||0)+change;save();requests.push({type:"Admin balance adjustment",method:"Manual",amount:Math.abs(change),status:(change>0?"Added: "+reason:"Deducted: "+reason),date:new Date().toLocaleString(),userEmail:user.email,userName:user.name});saveRequests();m.textContent="اس ڈیوائس کے اکاؤنٹ کا بیلنس اپڈیٹ ہوگیا۔";document.getElementById("balanceChange").value="";document.getElementById("balanceReason").value="";renderAdmin();renderProfile();renderDashboard()}
+function processRequest(i,action){let r=requests[i];if(!r||r.status!=="Pending")return;if(!user||r.userEmail!==user.email){alert("یہ درخواست موجودہ ڈیوائس کے لاگ اِن صارف سے متعلق نہیں ہے۔");return}if(action==="approve"&&r.type==="Deposit"){user.balance=Number(user.balance||0)+Number(r.amount);r.status="Approved — balance added";save()}else if(action==="complete"&&r.type==="Withdrawal"){if(Number(user.balance||0)<Number(r.amount)){alert("بیلنس کافی نہیں ہے۔ پہلے دستی طور پر ادائیگی اور بیلنس کی تصدیق کریں۔");return}user.balance=Number(user.balance||0)-Number(r.amount);r.status="Marked paid — balance deducted";save()}else{r.status="Rejected"}saveRequests();renderAdmin();renderProfile();renderDashboard()}
+function renderAdmin(){let u=document.getElementById("adminUser");u.textContent=user?user.name+" • "+user.email+" • Balance: Rs. "+Number(user.balance||0).toFixed(2):"No account on this device.";let box=document.getElementById("adminRequests");if(!requests.length){box.innerHTML="<p class='small'>No requests saved in this browser.</p>";return}box.innerHTML=requests.map((r,i)=>`<div class="taskbox" style="margin:12px 0"><b>${escapeHTML(r.type)}</b><p class="small">User: ${escapeHTML(r.userName||"")} (${escapeHTML(r.userEmail||"")})<br>Amount: Rs. ${Number(r.amount||0).toFixed(2)}<br>Method: ${escapeHTML(r.method||"")}<br>Details: ${escapeHTML(r.reference||r.account||"")}<br>Screenshot file: ${escapeHTML(r.screenshotName||"Not saved") }<br>Status: ${escapeHTML(r.status)}<br>${escapeHTML(r.date||"")}</p>${r.screenshotData?`<b>Payment Screenshot:</b><img class="request-shot" src="${r.screenshotData}" alt="User payment screenshot">`:""}${r.status==="Pending"?`<button class="btn" onclick="processRequest(${i},'${r.type==='Deposit'?'approve':'complete'}')">${r.type==='Deposit'?'Approve & Add Balance':'Mark Paid & Deduct Balance'}</button> <button class="btn secondary" onclick="processRequest(${i},'reject')">Reject</button>`:""}</div>`).join("")}
+
+</script>
+</body></html>
